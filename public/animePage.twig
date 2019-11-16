@@ -1,0 +1,53 @@
+{% extends 'public_main.twig' %}
+
+{% block pageTitle %}Главная страница{% endblock %}
+
+{% block content %}
+    <div class="page-content__column">
+        <div class="anime-item">
+            <div class="anime-item__header">
+                <div class="anime-item__header-title">
+                    <span>{{ anime_info.ru_name }}</span>
+                </div>
+                <div class="anime-item__header-score">
+                    <div class="anime-item__header-score__score">
+                        <span>{{ anime_info.score }}</span>
+                    </div>
+                    <div class="anime-item__header-score__controls">
+                        <div class="controls__up">up</div>
+                        <div class="controls__down">down</div>
+                    </div>
+                </div>
+            </div>
+            <div class="anime-item__player-wrap">
+                {% if anime_info.type is same as('tv') %}
+                    <div class="anime-item__player-episodes__wrap">
+                        {% for episod in range(1,anime_info.episodes) %}
+                            <div class="anime-item__player-episodes__item">
+                                {{ episod }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="anime-item__player-player"></div>
+            </div>
+            <div class="anime-item__info-wrap">
+                <img src="/assets/images/animebg.svg" alt="" class="info-wrap_bg">
+                <div class="anime-item__info-info anime-info">
+                    <div class="anime-info__head-info">
+                        <div class="anime-info__image">
+                            <img src="https://shikimori.one/{{ anime_info.photo }}" alt="">
+                        </div>
+                        <div class="anime-info__additional">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/assets/js/index.js"></script>
+{% endblock %}

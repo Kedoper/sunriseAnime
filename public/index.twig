@@ -29,162 +29,23 @@
     </div>
 
     <div class="anime-items__wrap">
-
-        <div class="anime-items-row">
+        {% for item in animelist %}
             <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-3.png" alt="">
+                <img src="{{ item.photo }}" alt="">
                 <div class="recent-slider__item-description item-description">
                     <div class="item-description__item-title">
-                        <span>Милый во франксе</span>
+                        <span>{{ item.title }}</span>
                     </div>
                     <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
+                        <a href="/anime/{{ item.id }}">Смотреть</a>
                     </div>
                 </div>
             </div>
+        {% endfor %}
 
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-        <div class="anime-items-row">
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-3.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Милый во франксе</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="anime-items__item">
-                <img src="/assets/images/Bitmap-2.png" alt="">
-                <div class="recent-slider__item-description item-description">
-                    <div class="item-description__item-title">
-                        <span>Призрак в доспехах</span>
-                    </div>
-                    <div class="item-description__item-link">
-                        <a href="#" >Смотреть</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-
-
-
+    </div>
+    <div class="loadmore-wrapper">
+        <button class="button loadmoreButton" id="loadMoreBtn" data-offset="24">Загрузить еще 24</button>
     </div>
 {% endblock %}
 

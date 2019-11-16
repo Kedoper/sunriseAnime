@@ -18,14 +18,21 @@ a {
   color: white;
   padding: 5px 25px;
   background-color: $orange;
+  border: 0;
   border-radius: 3px;
   font-size: 14px;
   text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
 }
 
 .page {
   &-logo {
     font-size: 32px;
+
+    & > a {
+      color: unset;
+    }
   }
 
   &-header {
@@ -66,6 +73,10 @@ a {
     width: 100%;
     min-height: 900px;
     //border: 1px solid;
+    &__column {
+      display: flex;
+      flex-direction: column;
+    }
 
     &__wrap {
       margin: 20px 0;
@@ -160,7 +171,9 @@ a {
   &-items {
     &__wrap {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-top: 20px;
     }
 
     &-row {
@@ -172,10 +185,14 @@ a {
 
     &__item {
       position: relative;
+      margin-bottom: 15px;
       width: 215px;
       height: 312px;
-      //margin: 30px 0;
-      //margin: 0 30px 0 0;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
 
       & > .item-description {
         padding-left: 15px;
@@ -197,6 +214,90 @@ a {
         }
       }
     }
+  }
+
+  /* Для страницы с аниме*/
+  &-item {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+
+      &-score {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__player {
+      &-episodes {
+        &__wrap {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        &__item {
+          width: 30px;
+          height: 30px;
+          margin: 2px;
+          background-color: $orange;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          user-select: none;
+          cursor: pointer;
+        }
+      }
+
+      &-player {
+        width: 100%;
+        height: 533px;
+        background-color: #2D2E33;
+      }
+
+      &-wrap {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__info {
+      &-wrap {
+        position: relative;
+
+        & > .info-wrap_bg {
+          width: 100%;
+          height: 100%;
+          user-select: none;
+          -webkit-user-drag: none;
+        }
+
+        width: 100%;
+        min-height: 539px;
+        //background-image: url("/assets/images/animebg.svg");
+      }
+
+      &-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 76px 90px 30px 123px;
+
+        &__head-info {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.loadmore {
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

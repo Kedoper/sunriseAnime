@@ -1,17 +1,31 @@
 <?php
 
+use RedBeanPHP\BeanCollection;
+
+header("Content-type: Application/json");
+
 $data = json_decode(file_get_contents('php://input'), true);
 $response = [];
-if ($data['offset'] === null) {
-    $list = R::findCollection('animes');
-    $count = 20;
+
+const OFFSET_ANIME_LIST = 24;
+
+function checkData($data)
+{
+    if ($data['offset'] <= 0) {
+        die(json_encode([
+            'code' => -1,
+            'message' => "Param 'offset' must be bigger than 0"
+        ]));
+    }
+}
+
+function getAnimeList(BeanCollection $list)
+{
+    $animeList = [];
     while ($anime = $list->next()) {
-        if ($count === 0) {
-            echo json_encode($response);
-            die();
-        }
         if ($anime['ru_name'] !== null) $anime_title = $anime['ru_name']; else $anime_title = $anime['name'];
-        $response[] = [
+        $animeList[] = [
+            'id' => $anime['id'],
             'title' => $anime_title,
             'photo' => "https://shikimori.one{$anime['photo']}",
             'episodes' => [
@@ -21,32 +35,29 @@ if ($data['offset'] === null) {
             'type' => $anime['type'],
             'status' => $anime['status'],
         ];
-        $count--;
     }
+    return $animeList;
+}
+
+if ($data['offset'] === null) {
+    $list = R::findCollection('animes', "WHERE id BETWEEN ? AND ?", [1, OFFSET_ANIME_LIST]);
+    $response = getAnimeList($list);
+    echo json_encode($response);
+
 } else if (is_int($data['offset'])) {
-    $list = R::findCollection('animes');
-    $from = $data['offset'] + 20;
-    $count = 20;
-    while ($anime = $list->next()) {
-        if ($from !== 0) {
-            $from--;
-        } else {
-            if ($count === 0) {
-                echo json_encode($response);
-                die();
-            }
-            if ($anime['ru_name'] !== null) $anime_title = $anime['ru_name']; else $anime_title = $anime['name'];
-            $response[] = [
-                'title' => $anime_title,
-                'photo' => "https://shikimori.one{$anime['photo']}",
-                'episodes' => [
-                    'count' => $anime['episodes'],
-                    'aired' => $anime['episodes_aired']
-                ],
-                'type' => $anime['type'],
-                'status' => $anime['status'],
-            ];
-            $count--;
-        }
-    }
+
+    checkData($data);
+
+    $offsetFrom = $data['offset'] + 1;
+    $offsetTo = ($offsetFrom + OFFSET_ANIME_LIST) - 1;
+
+    $list = R::findCollection('animes', "WHERE id BETWEEN ? AND ?", [$offsetFrom, $offsetTo]);
+    $response = getAnimeList($list);
+    echo json_encode($response);
+
+} else {
+    echo json_encode([
+        'code' => -1,
+        'message' => "Param 'offset' must be integer"
+    ]);
 }

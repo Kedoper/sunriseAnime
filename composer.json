@@ -1,7 +1,10 @@
 {
-    "require": {
-        "fzaninotto/faker": "^1.8",
-        "klein/klein": "^2.1",
-        "twig/twig": "^2.12"
-    }
+  "require": {
+    "fzaninotto/faker": "^1.8",
+    "klein/klein": "^2.1",
+    "twig/twig": "^2.12",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "guzzlehttp/guzzle": "^6.4"
+  }
 }

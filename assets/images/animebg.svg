@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="949.5" height="593.5" viewBox="0 0 949.5 593.5">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="949.5" height="593.5" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Component_2_1" data-name="Component 2 – 1" clip-path="url(#clip-path)">
+    <rect id="Rectangle" width="949" height="592" transform="translate(0 0.5)" fill="#fff"/>
+    <path id="Rectangle-2" data-name="Rectangle" d="M0,55.5,949.5,0l-1,76L0,75Z" transform="translate(0 517.5)" fill="#ff5722"/>
+    <path id="Triangle" d="M517,0H0V285Z" transform="translate(0 0.5)" fill="#ff5722"/>
+    <path id="Rectangle-3" data-name="Rectangle" d="M0,52.5,90,0l29,334.5L0,340Z" transform="translate(0 233)"/>
+    <path id="Triangle-2" data-name="Triangle" d="M0,0H131V412Z" transform="translate(818 0.5)" fill="#0b0b0b" stroke="#979797" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>
