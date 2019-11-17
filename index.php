@@ -4,7 +4,7 @@ include "./libs/rb/connect.php";
 $route = new \Klein\Klein();
 $loader = new \Twig\Loader\FilesystemLoader(['./templates', './public']);
 $twig = new \Twig\Environment($loader, [
-//    'cache' => './cache',
+    'cache' => './cache',
 ]);
 function errorSender()
 {

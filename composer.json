@@ -1,4 +1,7 @@
 {
+  "name": "kferst/sunrise-anime",
+  "license": "MIT",
+  "description": "Session draft of the MPT",
   "require": {
     "fzaninotto/faker": "^1.8",
     "klein/klein": "^2.1",

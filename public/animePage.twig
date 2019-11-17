@@ -1,6 +1,10 @@
 {% extends 'public_main.twig' %}
 
-{% block pageTitle %}Главная страница{% endblock %}
+  {% block styles %}
+      <link rel="stylesheet" href="/libs/fontawesome/fontawesome.css">
+  {% endblock %}
+
+{% block pageTitle %}{{ anime_info.ru_name }} смотреть аниме в высоком качестве{% endblock %}
 
 {% block content %}
     <div class="page-content__column">
@@ -14,13 +18,17 @@
                         <span>{{ anime_info.score }}</span>
                     </div>
                     <div class="anime-item__header-score__controls">
-                        <div class="controls__up">up</div>
-                        <div class="controls__down">down</div>
+                        <div class="controls__up">
+                            <i class="fas fa-sort-down"></i>
+                        </div>
+                        <div class="controls__down">
+                            <i class="fas fa-sort-down"></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="anime-item__player-wrap">
-                {% if anime_info.type is same as('tv') %}
+                {% if anime_info.type is same as('Сериал') %}
                     <div class="anime-item__player-episodes__wrap">
                         {% for episod in range(1,anime_info.episodes) %}
                             <div class="anime-item__player-episodes__item">
@@ -40,6 +48,61 @@
                         </div>
                         <div class="anime-info__additional">
 
+                            <div class="anime-info__additional-row">
+                                <div class="anime-info__title">
+                                    <span>{{ anime_info.ru_name }}</span>
+                                </div>
+                            </div>
+
+                            <div class="anime-info__additional-row">
+                                <div class="anime-info__status">
+                                    <span>Статус:</span>
+                                    <span>{{ anime_info.status }}</span>
+                                </div>
+                            </div>
+
+                            <div class="anime-info__additional-row">
+                                <div class="anime-info__studio">
+                                    <span>Студия:</span>
+                                    <span>{{ anime_info.studios }}</span>
+                                </div>
+                            </div>
+
+                            <div class="anime-info__additional-row">
+                                <div class="anime-info__genres">
+                                    <span>Жанр:</span>
+                                    <span>{{ anime_info.genres }}</span>
+                                </div>
+                            </div>
+
+                            <div class="anime-info__additional-row">
+                                <div class="anime-info__type">
+                                    <span>Тип:</span>
+                                    <span>{{ anime_info.type }}</span>
+                                </div>
+                            </div>
+
+                            {% if anime_info.type is not same as('Полнометражный фильм') %}
+                                <div class="anime-info__additional-row">
+                                    <div class="anime-info__episodes">
+                                        <span>Серий:</span>
+                                        <span>{{ anime_info.episodes }}</span>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="anime-info__additional-row">
+                                <div class="anime-info__year">
+                                    <span>Год:</span>
+                                    <span>{{ anime_info.aired_on }}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="anime-info__body-info">
+                        <div class="anime-info__description">
+                            <p>{{ anime_info.description }}</p>
                         </div>
                     </div>
                 </div>
@@ -50,4 +113,5 @@
 
 {% block scripts %}
     <script src="/assets/js/index.js"></script>
+    <script src="/libs/fontawesome/source/js/all.min.js"></script>
 {% endblock %}

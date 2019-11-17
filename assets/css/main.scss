@@ -1,4 +1,5 @@
 $orange: #FF5722;
+$grey: #979797;
 
 
 * {
@@ -188,7 +189,7 @@ a {
       margin-bottom: 15px;
       width: 215px;
       height: 312px;
-
+      cursor: pointer;
       & > img {
         width: 100%;
         height: 100%;
@@ -221,10 +222,51 @@ a {
     &__header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      &-title {
+        font-size: 30px;
+      }
 
       &-score {
         display: flex;
         align-items: center;
+
+        &__score {
+          font-size: 45px;
+          margin-right: 15px;
+        }
+
+        &__controls {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          & > .controls__up {
+            transform: rotate(180deg);
+          }
+
+          & > .controls__up, & > .controls__down {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            font-size: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            &:hover {
+              color: $orange;
+            }
+
+            & > svg {
+              position: absolute;
+              top: -24px;
+            }
+          }
+        }
       }
     }
 
@@ -234,6 +276,10 @@ a {
           display: flex;
           align-items: center;
           flex-wrap: wrap;
+          max-height: 170px;
+          overflow: auto;
+          margin-bottom: 10px;
+
         }
 
         &__item {
@@ -283,13 +329,45 @@ a {
         left: 0;
         width: 100%;
         height: 100%;
-        padding: 76px 90px 30px 123px;
-
-        &__head-info {
-          display: flex;
-        }
+        padding: 216px 90px 30px 184px;
       }
     }
+  }
+}
+
+.anime-info {
+  font-size: 16px;
+
+  &__head-info {
+    display: flex;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 31px;
+    margin-bottom: 32px;
+  }
+
+  &__status, &__studio, &__genres, &__type, &__episodes, &__year {
+    margin-bottom: 20px;
+    display: flex;
+    & > span:first-child {
+      display: inline-block;
+      width: 50px;
+      margin-right: 40px;
+    }
+
+    & > span:last-child {
+      display: inline-block;
+      padding: 2px 12px;
+      border-bottom: 1px solid $grey;
+      width: 70%;
+    }
+  }
+
+  &__additional {
+    margin-left: 34px;
+    width: 100%;
   }
 }
 

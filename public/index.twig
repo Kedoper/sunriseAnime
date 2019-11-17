@@ -30,7 +30,7 @@
 
     <div class="anime-items__wrap">
         {% for item in animelist %}
-            <div class="anime-items__item">
+            <div class="anime-items__item" onclick="location.href='/anime/{{ item.id }}'">
                 <img src="{{ item.photo }}" alt="">
                 <div class="recent-slider__item-description item-description">
                     <div class="item-description__item-title">

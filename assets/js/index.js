@@ -12,6 +12,10 @@ function getAnimes(offset = null) {
             response.map(value => {
                 let item_wrap = document.createElement('div');
                 item_wrap.classList.add('anime-items__item');
+                item_wrap.addEventListener('click',function () {
+                   location.href = `/anime/${value.id}`;
+                });
+
                 let item_image = document.createElement('img');
                 item_image.src = value.photo;
 
