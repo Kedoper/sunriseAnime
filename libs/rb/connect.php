@@ -1,9 +1,9 @@
 <?php
 include __DIR__ . "/rb-mysql.php";
-$host = "127.0.0.1:3050";
+$host = "127.0.0.1";
 $db_name = "anime";
 $db_userName = "root";
-$db_password = "123";
+$db_password = "";
 R::setup("mysql:host={$host};dbname={$db_name}",
     $db_userName, $db_password);
 
